@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="WaterWise is a plant-care app that is easy on your eyes, your time and your battery.">
+  <title>WaterWise | Plant care that stays quiet</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/images/logo-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <img src="assets/images/logo-192.png" alt="" width="40" height="40">
+    <p class="site-name">WaterWise</p>
+    <p class="sync-status" id="sync" role="status">Synced just now. Works offline.</p>
+    <nav class="app-nav" aria-label="Main">
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#settings">Settings</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page" tabindex="-1">
+    <!-- A. Home -->
+    <section id="view-home" class="cols" aria-labelledby="home-title" hidden>
+      <div class="stack"><h1 id="home-title">Morning!</h1><div id="home-urgent" class="stack"></div></div>
+      <div class="stack"><button type="button" class="btn" id="mic" hidden>Speak: &ldquo;I watered the fern&rdquo;</button><div id="home-list"></div></div>
+    </section>
+
+    <!-- B. Plant + when the sensor fails -->
+    <section id="view-plant" class="cols" aria-labelledby="plant-title" hidden>
+      <div class="stack"><a class="back" href="#home">&lsaquo; Home</a><h1 id="plant-title"></h1><div id="plant-info" class="stack"></div></div>
+      <div id="plant-panel" class="stack"></div>
+    </section>
+
+    <!-- C. Eco + access settings -->
+    <section id="view-settings" class="stack" aria-labelledby="settings-title" hidden>
+      <h1 id="settings-title">Settings</h1>
+      <div class="setting"><div><strong>Eco mode</strong><span class="note">Dark, low refresh, no pictures, text-only sync</span></div><button type="button" class="btn" role="switch" data-set="eco"></button></div>
+      <div class="setting"><div><strong>Voice control</strong><span class="note">Say &ldquo;I watered the fern&rdquo;</span></div><button type="button" class="btn" role="switch" data-set="voice"></button></div>
+      <div class="setting"><div><strong>Haptic buzz</strong><span class="note">1 buzz = done, 2 buzzes = error</span></div><button type="button" class="btn" role="switch" data-set="haptic"></button></div>
+      <div class="setting"><div><strong>Spoken confirms</strong><span class="note">Reads actions aloud</span></div><button type="button" class="btn" role="switch" data-set="speak"></button></div>
+      <div class="stack"><strong id="size-label">Text size</strong><div class="sizes" role="group" aria-labelledby="size-label">
+        <button type="button" class="btn" data-size="100">100%</button><button type="button" class="btn" data-size="125">125%</button>
+        <button type="button" class="btn" data-size="150">150%</button><button type="button" class="btn" data-size="200">200%</button></div></div>
+      <div class="setting"><div><strong>Demo: Fern sensor offline</strong><span class="note">Turn off to see the sensor come back</span></div><button type="button" class="btn" role="switch" data-set="demoFail"></button></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" hidden><span id="toast-msg"></span><button type="button" class="btn" id="undo">Undo</button></div>
+
+  <footer class="site-footer"><p>WaterWise, an HCI design project by Marck Gabriel C. Diaz.</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
